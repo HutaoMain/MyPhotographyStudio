@@ -1,28 +1,19 @@
 import { Injectable, NgZone } from '@angular/core';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import firebase from 'firebase/compat/app';
-// import { User } from '../interfaces/user';
-
-// import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  // user$: Observable<User>;
-
   constructor(
     public router: Router,
     public ngZone: NgZone,
     public afAuth: AngularFireAuth // Inject Firebase auth service
-  ) {
-    // this.afAuth.authState.subscribe(user => {
-    //   this.user = user;
-    // })
-  }
+  ) {}
 
   async createUser() {
     const data = {
@@ -30,7 +21,6 @@ export class AuthService {
       displayName: firebase.auth().currentUser?.displayName,
       photoUrl: firebase.auth().currentUser?.photoURL,
     };
-    console.log(data);
     try {
       const response = await axios.post(
         'http://localhost:8080/api/users/create',
@@ -48,7 +38,21 @@ export class AuthService {
       .then((res) => {
         this.ngZone.run(() => {
           this.createUser();
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['']);
+        });
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
+  }
+
+  // Sign in with Facebook
+  FacebookAuth() {
+    return this.AuthLogin(new FacebookAuthProvider())
+      .then((res) => {
+        this.ngZone.run(() => {
+          this.createUser();
+          this.router.navigate(['']);
         });
       })
       .catch((error) => {
@@ -67,4 +71,16 @@ export class AuthService {
         console.log(error);
       });
   }
+
+  //  // Auth logic to run auth providers
+  //  AuthLoginFacebook(provider: any) {
+  //   return this.afAuth
+  //     .signInWithPopup(provider)
+  //     .then((result) => {
+  //       console.log('You have been successfully logged in!');
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 }

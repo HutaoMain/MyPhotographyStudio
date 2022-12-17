@@ -1,0 +1,33 @@
+.navbar {
+  height: 80px;
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  width: 70%;
+}
+
+.navbarIcon {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.navbarBtn {
+  border: 2px solid transparent;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  height: 50px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.navbarBtn:hover {
+  border-bottom: 2px solid black;
+}
