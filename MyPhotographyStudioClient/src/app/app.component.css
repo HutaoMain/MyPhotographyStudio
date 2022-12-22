@@ -1,1 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  -ms-overflow-style: none;
+}
 
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}

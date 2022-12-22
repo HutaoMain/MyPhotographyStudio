@@ -7,6 +7,7 @@ import { environment } from './environment/environment';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './components/home/home.component';
@@ -18,13 +19,23 @@ import { ImagesliderComponent } from './components/home/imageslider/imageslider.
 // import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, ImagesliderComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    NavbarComponent,
+    ImagesliderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     BrowserAnimationsModule,
+
+    SlickCarouselModule,
+
     // MatToolbarModule,
     // MatIconModule,
   ],

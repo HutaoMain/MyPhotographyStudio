@@ -3,13 +3,18 @@
   width: 100%;
   border: 1px solid black;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
   border: 1px solid black;
-  width: 70%;
+  width: 90%;
 }
 
 .navbarIcon {

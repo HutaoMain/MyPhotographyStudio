@@ -1,0 +1,26 @@
+.carousel {
+  height: 100vh;
+}
+
+.slick-slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    45deg,
+    #000,
+    #000 10px,
+    #fff 10px,
+    #fff 20px
+  );
+  pointer-events: none;
+}
+
+.img-slide {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
